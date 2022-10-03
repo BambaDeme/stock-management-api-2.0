@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity
 @Table(name = "mvtStock")
 public class MvtStock extends AbstractEntity{

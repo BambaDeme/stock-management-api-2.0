@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity
 @Table(name = "ligneCommandeFournisseur")
 public class LigneCommandeFournisseur extends AbstractEntity{

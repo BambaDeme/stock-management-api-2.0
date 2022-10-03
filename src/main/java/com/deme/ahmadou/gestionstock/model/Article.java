@@ -9,8 +9,8 @@ import javax.persistence.Table;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity
 @Table(name = "article")
-public class Article {
+public class Article extends AbstractEntity{
 }
