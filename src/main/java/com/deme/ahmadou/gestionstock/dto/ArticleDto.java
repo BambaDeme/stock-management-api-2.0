@@ -29,7 +29,7 @@ public class ArticleDto {
 
     private CategoryDto category;
 
-    public ArticleDto fromEntity(Article article){
+    public static ArticleDto fromEntity(Article article){
         if(article == null){
             // TODO threw exception
             return null;
@@ -43,18 +43,12 @@ public class ArticleDto {
                 .tauxTva(article.getTauxTva())
                 .prixUnitaireTtc(article.getPrixUnitaireTtc())
                 .photo(article.getPhoto())
-                .category(
-                        CategoryDto.builder()
-                                .id(article.getCategory().getId())
-                                .code(article.getCategory().getCode())
-                                .designation(article.getCategory().getDesignation())
-                                .build()
-                )
+                .category(CategoryDto.fromEntity(article.getCategory()))
                 .build();
 
     }
 
-    public Article toEntity(ArticleDto articleDto){
+    public static Article toEntity(ArticleDto articleDto){
         if(articleDto == null){
             // TODO threw new exception
             return null;
@@ -68,11 +62,7 @@ public class ArticleDto {
         article.setPrixUnitaireTtc(articleDto.getPrixUnitaireTtc());
         article.setPhoto(articleDto.getPhoto());
 
-        Category category = new Category();
-        category.setId(articleDto.getCategory().getId());
-        category.setCode(articleDto.getCategory().getCode());
-        category.setDesignation(articleDto.getCategory().getDesignation());
-        article.setCategory(category);
+        article.setCategory(CategoryDto.toEntity(articleDto.getCategory()));
 
         return article;
     }
