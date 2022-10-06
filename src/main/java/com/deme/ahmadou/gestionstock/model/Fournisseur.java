@@ -1,17 +1,39 @@
 package com.deme.ahmadou.gestionstock.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "fournisseur")
+@EqualsAndHashCode(callSuper = true)
 public class Fournisseur extends AbstractEntity{
+
+    @Column(name = "nom")
+    private String nom;
+
+    @Column(name = "prenom")
+    private String prenom;
+
+    // private Adresse adresse
+    @Embedded
+    private Adresse adresse;
+
+    @Column(name = "photo")
+    private String photo;
+
+    @Column(name = "mail")
+    private String mail;
+
+    @Column(name = "numtel")
+    private String numTel;
+
+    @OneToMany(mappedBy = "fournisseur")
+    private List<CommandeFournisseur> commandeFournisseurList;
 }

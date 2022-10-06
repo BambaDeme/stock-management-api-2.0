@@ -1,16 +1,14 @@
 package com.deme.ahmadou.gestionstock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "client")
 @EqualsAndHashCode(callSuper = true)

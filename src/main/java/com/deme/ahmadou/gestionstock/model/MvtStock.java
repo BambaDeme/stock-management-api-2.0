@@ -1,16 +1,30 @@
 package com.deme.ahmadou.gestionstock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.Instant;
 
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Builder
 @Entity
 @Table(name = "mvtStock")
 public class MvtStock extends AbstractEntity{
+
+    @Column(name = "datemvt")
+    private Instant dateMvt;
+
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+
+    @ManyToOne
+    @JoinColumn(name = "idArticle")
+    private Article article;
+
+    @Column(name = "typemvt")
+    private TypeMvtStk typeMvtStk;
 }

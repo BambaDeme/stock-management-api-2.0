@@ -1,9 +1,6 @@
 package com.deme.ahmadou.gestionstock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +10,8 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "category")

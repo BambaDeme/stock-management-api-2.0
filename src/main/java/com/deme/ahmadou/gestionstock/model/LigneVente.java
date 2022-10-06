@@ -1,16 +1,26 @@
 package com.deme.ahmadou.gestionstock.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "ligneVente")
 public class LigneVente extends AbstractEntity{
+
+    @ManyToOne
+    @JoinColumn(name = "idVente")
+    private Vente vente;
+
+    @Column(name = "quantite")
+    private BigDecimal quantite;
+
+    @Column(name = "prixunitaire")
+    private BigDecimal prixUnitaire;
 }
