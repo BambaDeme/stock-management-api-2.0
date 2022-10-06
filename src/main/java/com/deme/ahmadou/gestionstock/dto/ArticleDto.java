@@ -29,7 +29,7 @@ public class ArticleDto {
 
     private CategoryDto category;
 
-    public static ArticleDto fromEntity(Article article){
+    public ArticleDto fromEntity(Article article){
         if(article == null){
             // TODO threw exception
             return null;
