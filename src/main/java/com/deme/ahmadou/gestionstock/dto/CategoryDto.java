@@ -32,17 +32,16 @@ public class CategoryDto {
         }
     }
 
-    public Category fromEntity(CategoryDto categoryDto){
+    public Category toEntity(CategoryDto categoryDto){
         if(categoryDto ==null){
             // TODO throw exception
             return null;
-        }else{
-            return Category.builder()
-                    .id(categoryDto.getId())
-                    .code(categoryDto.getCode())
-                    .designation(categoryDto.getDesignation())
-                    .build();
-
         }
+        Category category = new Category();
+        category.setId(categoryDto.getId());
+        category.setCode(categoryDto.getCode());
+        category.setDesignation(categoryDto.getDesignation());
+
+        return category;
     }
 }
